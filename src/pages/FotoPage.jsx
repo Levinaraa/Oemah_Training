@@ -29,154 +29,210 @@ const GALLERIES = [
 
 export default function FotoPage() {
   return (
-    <div className="page-gallery">
-      {/* ================= HERO ================= */}
-      <section
-        style={{
-          background: "linear-gradient(135deg,#6a852b,#a0c44b)",
-          padding: "160px 0 100px",
-          color: "#fff",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 24px",
-          }}
-        >
-          <span
-            style={{
-              display: "inline-block",
-              padding: "8px 18px",
-              borderRadius: "50px",
-              background: "rgba(255,255,255,.15)",
-              border: "1px solid rgba(255,255,255,.2)",
-              color: "#dff0a5",
-              marginBottom: "20px",
-              fontWeight: 600,
-            }}
-          >
-            # Dokumentasi Kegiatan
-          </span>
+    <div className="page-foto" style={{ padding: "60px 0 80px", backgroundColor: "#fafcfa" }}>
+      <div className="container" style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 24px" }}>
 
+        {/* ===== HEADER ===== */}
+        <div style={{ maxWidth: "760px", marginBottom: "32px" }}>
           <h1
             style={{
-              fontSize: "52px",
-              marginBottom: "20px",
-              color: "#fff",
+              fontSize: "2.8rem",
+              fontWeight: 800,
+              color: "#1e2415",
+              marginBottom: "16px",
+              letterSpacing: "-0.02em",
             }}
           >
-            Galeri Foto
+            Galeri <span style={{ color: "#6a852b" }}>Kegiatan</span>
           </h1>
-
           <p
             style={{
-              maxWidth: "700px",
-              margin: "auto",
-              color: "rgba(255,255,255,.85)",
-              fontSize: "18px",
+              fontSize: "1.05rem",
+              color: "#4a5a3a",
               lineHeight: 1.8,
+              marginBottom: "12px",
             }}
           >
             Dokumentasi berbagai kegiatan pelatihan, workshop, seminar, dan
             corporate training yang telah diselenggarakan oleh Oemah Training.
           </p>
+          <p
+            style={{
+              fontSize: "1rem",
+              color: "#5a6b47",
+              lineHeight: 1.8,
+            }}
+          >
+            Setiap kegiatan dirancang untuk memberikan pengalaman belajar yang
+            aplikatif dan mendalam bagi peserta.
+          </p>
         </div>
-      </section>
 
-      {/* ================= GALLERY ================= */}
-
-      <section
-        style={{
-          padding: "90px 0",
-          background: "#fff",
-        }}
-      >
-        <div
+        {/* ===== PEMBATAS TIPIS ===== */}
+        <hr
           style={{
-            maxWidth: "1200px",
-            margin: "auto",
-            padding: "0 24px",
+            border: "none",
+            borderTop: "1.5px solid #dce6d0",
+            margin: "0 0 48px 0",
+            opacity: 0.6,
           }}
-        >
-          {GALLERIES.map((item, index) => (
+        />
+
+        {/* ===== GALLERY LIST ===== */}
+        {GALLERIES.map((item, index) => (
+          <div key={index} style={{ marginBottom: "72px" }}>
             <div
-              key={index}
               style={{
-                marginBottom: "80px",
+                textAlign: "center",
+                marginBottom: "30px",
               }}
             >
-              <div
+              <h2
                 style={{
-                  textAlign: "center",
-                  marginBottom: "30px",
+                  fontSize: "1.6rem",
+                  fontWeight: 700,
+                  color: "#1e2415",
+                  marginBottom: "8px",
                 }}
               >
-                <h2
-                  style={{
-                    fontSize: "28px",
-                    color: "#223354",
-                    marginBottom: "10px",
-                  }}
-                >
-                  {item.title}
-                </h2>
-
-                <p
-                  style={{
-                    color: "#64748b",
-                    maxWidth: "700px",
-                    margin: "auto",
-                  }}
-                >
-                  {item.desc}
-                </p>
-              </div>
-
-              <div
+                {item.title}
+              </h2>
+              <p
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2,1fr)",
-                  gap: "25px",
+                  color: "#5a6b47",
+                  maxWidth: "700px",
+                  margin: "0 auto",
+                  fontSize: "1rem",
+                  lineHeight: 1.7,
                 }}
               >
-                {item.photos.map((photo, idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      overflow: "hidden",
-                      borderRadius: "18px",
-                      boxShadow: "0 12px 35px rgba(0,0,0,.08)",
-                    }}
-                  >
-                    <img
-                      src={photo}
-                      alt={item.title}
-                      loading="lazy"
-                      style={{
-                        width: "100%",
-                        height: "360px",
-                        objectFit: "cover",
-                        display: "block",
-                        transition: ".4s",
-                        cursor: "pointer",
-                      }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style.transform = "scale(1.05)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style.transform = "scale(1)")
-                      }
-                    />
-                  </div>
-                ))}
-              </div>
+                {item.desc}
+              </p>
             </div>
-          ))}
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: "24px",
+              }}
+            >
+              {item.photos.map((photo, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    overflow: "hidden",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+                    border: "1px solid #e2ece0",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 12px 32px rgba(106,133,43,0.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.04)";
+                  }}
+                >
+                  <img
+                    src={photo}
+                    alt={item.title}
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "340px",
+                      objectFit: "cover",
+                      display: "block",
+                      transition: "transform 0.4s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.03)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.transform = "scale(1)")
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Garis pembatas antar galeri (kecuali yang terakhir) */}
+            {index < GALLERIES.length - 1 && (
+              <hr
+                style={{
+                  border: "none",
+                  borderTop: "1px solid #e2ece0",
+                  margin: "56px 0 0 0",
+                  opacity: 0.5,
+                }}
+              />
+            )}
+          </div>
+        ))}
+
+        {/* ===== CTA SEDERHANA (mirip halaman Trainer) ===== */}
+        <hr
+          style={{
+            border: "none",
+            borderTop: "1.5px solid #dce6d0",
+            margin: "56px 0 40px 0",
+            opacity: 0.6,
+          }}
+        />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "24px",
+          }}
+        >
+          <div>
+            <h3
+              style={{
+                fontSize: "1.3rem",
+                fontWeight: 700,
+                color: "#1e2415",
+                marginBottom: "4px",
+              }}
+            >
+              Ikuti kegiatan kami selanjutnya?
+            </h3>
+            <p style={{ fontSize: "0.95rem", color: "#5a6b47" }}>
+              Daftar sekarang dan jadilah bagian dari komunitas pembelajar.
+            </p>
+          </div>
+          <button
+            onClick={() => window.location.href = "/kontak-kami"} // opsional, ganti dengan navigateTo jika pakai routing
+            style={{
+              background: "#6a852b",
+              color: "#ffffff",
+              fontWeight: 600,
+              padding: "12px 36px",
+              borderRadius: "40px",
+              border: "none",
+              fontSize: "0.95rem",
+              cursor: "pointer",
+              transition: "background 0.25s ease, transform 0.2s ease",
+              boxShadow: "0 4px 12px rgba(106,133,43,0.2)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#4d631f";
+              e.currentTarget.style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#6a852b";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            Hubungi Kami
+          </button>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

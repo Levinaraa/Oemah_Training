@@ -3,146 +3,180 @@ import { useApp } from '../context/AppContext';
 import { TRAINERS } from '../data/mockData';
 
 export default function TrainerPage() {
-  const { navigateTo } = useApp(); // Hapus openRegistrationModal karena tidak dipakai
+  const { navigateTo } = useApp();
 
   return (
-    <div className="page-trainer">
-      {/* ===== HERO ===== */}
-      <section style={{
-        background: 'linear-gradient(135deg, #6a852b 0%, #a0c44b 100%)',
-        padding: '160px 0 100px',
-        color: '#ffffff',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <span style={{
-            backgroundColor: 'rgba(255,255,255,0.12)',
-            color: '#c8dd8a',
-            padding: '6px 16px',
-            borderRadius: '20px',
-            fontSize: '13px',
-            fontWeight: '600',
-            display: 'inline-block',
-            marginBottom: '20px',
-            border: '1px solid rgba(255,255,255,0.2)',
-            letterSpacing: '1px',
-            textTransform: 'uppercase'
-          }}>Layanan & Konsultasi IT Profesional</span>
-          <h1 style={{ fontSize: '52px', lineHeight: '1.15', color: '#ffffff', marginBottom: '24px' }}>
-            Layanan &amp; Konsultasi<br />IT Profesional
+    <div className="page-trainer" style={{ padding: '60px 0 80px', backgroundColor: '#fafcfa' }}>
+      <div className="container" style={{ maxWidth: '1140px', margin: '0 auto', padding: '0 24px' }}>
+
+        {/* ===== HEADER ===== */}
+        <div style={{ maxWidth: '760px', marginBottom: '32px' }}>
+          <h1 style={{
+            fontSize: '2.8rem',
+            fontWeight: 800,
+            color: '#1e2415',
+            marginBottom: '16px',
+            letterSpacing: '-0.02em'
+          }}>
+            Trainer <span style={{ color: '#6a852b' }}>Profesional</span>
           </h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.85)', marginBottom: '40px', maxWidth: '650px', margin: '0 auto 40px' }}>
-            Menggunakan teknologi yang berkualitas dan berkualitas tinggi, kami memberikan layanan yang profesional.
+          <p style={{
+            fontSize: '1.05rem',
+            color: '#4a5a3a',
+            lineHeight: '1.8',
+            marginBottom: '12px'
+          }}>
+            Oemah Training didukung oleh praktisi muda IT dan lulusan universitas terbaik 
+            dengan pengalaman sebagai dosen, staf ahli, hingga CEO perusahaan IT.
           </p>
-          <button 
-            className="btn btn-primary" 
-            onClick={() => navigateTo('kontak-kami')} // ← INI PERUBAHANNYA
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '12px 28px',
-              borderRadius: '8px',
-              fontWeight: '600',
-              fontSize: '15px',
-              cursor: 'pointer',
-              transition: '0.3s ease',
-              border: 'none',
-              gap: '8px',
-              backgroundColor: '#a0c44b',
-              color: '#ffffff',
-              boxShadow: '0 4px 14px rgba(106,133,43,0.4)'
-            }}
-          >
-            Konsultasi Sekarang <i className="fas fa-comment-dots"></i>
-          </button>
-        </div>
-      </section>
-
-      {/* ===== TRAINER KAMI ===== */}
-      <section className="section-container">
-        <div className="section-tag-badge">
-          # Trainer Profesional
-        </div>
-        <div className="section-header-split">
-          <div>
-            <h2 className="section-title">
-              Belajar Langsung dari Para{" "}
-              <span className="highlight-text">Trainer</span>{" "}
-              Profesional
-            </h2>
-            <p className="section-subtitle">
-              Para instruktur ahli berpengalaman siap membimbingmu,
-              mendampingi proses belajar hingga 100% paham materi.
-            </p>
-          </div>
+          <p style={{
+            fontSize: '1rem',
+            color: '#5a6b47',
+            lineHeight: '1.8'
+          }}>
+            Setiap trainer telah berpengalaman di bidangnya dan siap membimbing peserta 
+            dengan pendekatan yang aplikatif dan relevan dengan industri.
+          </p>
         </div>
 
-        <div className="trainers-grid">
+        {/* ===== PEMBATAS TIPIS ===== */}
+        <hr style={{
+          border: 'none',
+          borderTop: '1.5px solid #dce6d0',
+          margin: '0 0 40px 0',
+          opacity: 0.6
+        }} />
+
+        {/* ===== TRAINER GRID ===== */}
+        <div className="trainers-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '28px',
+          marginTop: '8px'
+        }}>
           {TRAINERS.map((trainer, idx) => (
-            <div key={idx} className="trainer-card">
-              <div className="trainer-img-wrapper">
-                <img src={trainer.photo} alt={trainer.name} loading="lazy" />
+            <div
+              key={idx}
+              className="trainer-card"
+              style={{
+                background: '#ffffff',
+                border: '1px solid #e2ece0',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
+                cursor: 'default'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(106,133,43,0.10)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.02)';
+              }}
+            >
+              <div className="trainer-img-wrapper" style={{
+                height: '220px',
+                overflow: 'hidden',
+                backgroundColor: '#eef3ea'
+              }}>
+                <img
+                  src={trainer.photo}
+                  alt={trainer.name}
+                  loading="lazy"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.4s ease'
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                />
               </div>
-              <div className="trainer-info">
-                <h3>{trainer.name}</h3>
-                <span className="trainer-role">{trainer.role}</span>
+              <div className="trainer-info" style={{ padding: '20px 20px 24px' }}>
+                <h3 style={{
+                  fontSize: '1.05rem',
+                  fontWeight: 700,
+                  color: '#1e2415',
+                  marginBottom: '4px',
+                  lineHeight: 1.3
+                }}>
+                  {trainer.name}
+                </h3>
+                <span className="trainer-role" style={{
+                  fontSize: '0.85rem',
+                  color: '#5a6b47',
+                  display: 'block',
+                  fontWeight: 500
+                }}>
+                  {trainer.role}
+                </span>
               </div>
             </div>
           ))}
         </div>
-      </section>
 
-      {/* ===== 4 LANGKAH MENUJU SUKSES ===== */}
-      <section style={{
-        backgroundColor: '#6a852b',
-        padding: '100px 0',
-        color: '#ffffff'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ maxWidth: '600px', margin: '0 auto 60px', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '36px', marginBottom: '16px', color: '#ffffff' }}>
-              4 Langkah Menuju Sukses
-            </h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)' }}>
-              Metodologi kerja profesional kami untuk menjamin hasil terbaik.
+        {/* ===== PEMBATAS & CTA ===== */}
+        <hr style={{
+          border: 'none',
+          borderTop: '1.5px solid #dce6d0',
+          margin: '56px 0 40px 0',
+          opacity: 0.6
+        }} />
+
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '24px'
+        }}>
+          <div>
+            <h3 style={{
+              fontSize: '1.3rem',
+              fontWeight: 700,
+              color: '#1e2415',
+              marginBottom: '4px'
+            }}>
+              Ingin menjadi bagian dari tim?
+            </h3>
+            <p style={{
+              fontSize: '0.95rem',
+              color: '#5a6b47'
+            }}>
+              Hubungi kami untuk informasi lebih lanjut.
             </p>
           </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '30px'
-          }}>
-            {[
-              { num: 1, title: 'Consult', desc: 'Analisis mendalam kebutuhan dan target transformasi digital.' },
-              { num: 2, title: 'Design', desc: 'Perancangan arsitektur teknologi yang kokoh dan adaptif.' },
-              { num: 3, title: 'Execute', desc: 'Implementasi sistem dengan standar kode tinggi dan terstruktur.' },
-              { num: 4, title: 'Support', desc: 'Pendampingan purna-jual dan maintenance sistem berkala.' }
-            ].map((step, idx) => (
-              <div key={idx} style={{ textAlign: 'center' }}>
-                <div style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '50%',
-                  backgroundColor: '#a0c44b',
-                  color: '#ffffff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'Outfit, Inter, sans-serif',
-                  fontSize: '22px',
-                  fontWeight: '800',
-                  margin: '0 auto 24px',
-                  boxShadow: '0 8px 20px -4px rgba(0,0,0,0.25)'
-                }}>{step.num}</div>
-                <h3 style={{ color: '#ffffff', fontSize: '18px', marginBottom: '12px' }}>{step.title}</h3>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px' }}>{step.desc}</p>
-              </div>
-            ))}
-          </div>
+          <button
+            onClick={() => navigateTo('kontak-kami')}
+            style={{
+              background: '#6a852b',
+              color: '#ffffff',
+              fontWeight: 600,
+              padding: '12px 36px',
+              borderRadius: '40px',
+              border: 'none',
+              fontSize: '0.95rem',
+              cursor: 'pointer',
+              transition: 'background 0.25s ease, transform 0.2s ease',
+              boxShadow: '0 4px 12px rgba(106,133,43,0.2)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#4d631f';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#6a852b';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            Hubungi Kami
+          </button>
         </div>
-      </section>  
+
+      </div>
     </div>
   );
 }

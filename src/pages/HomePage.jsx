@@ -4,7 +4,6 @@ import {
   Users,
   MessageSquare,
   BookOpen,
-
   Star,
   Calendar as CalendarIcon,
   ChevronLeft,
@@ -166,7 +165,7 @@ export default function HomePage() {
 
     {/* SECTION 3: TRAINER PROFESIONAL */}
     <section className="section-container">
-      <div className="section-tag-badge"># Trainer Profesional</div>
+      <div className="section-tag-badge">Meet Our Trainers</div>
       <div className="section-header-split">
         <div>
           <h2 className="section-title">

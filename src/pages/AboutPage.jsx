@@ -2,6 +2,14 @@ import React from 'react';
 import { ArrowUpRight, UserCheck, BookOpen, Users, MapPin } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/mockData';
 
+import arduino1 from "../assets/gallery/arduino1.jpg";
+import arduino2 from "../assets/gallery/arduino2.jpg";
+
+import digital1 from "../assets/gallery/digital1.jpg";
+import digital2 from "../assets/gallery/digital2.jpg";
+
+import web1 from "../assets/gallery/web1.jpg";
+
 export default function AboutPage() {
   return (
     <div className="page-about">
@@ -61,19 +69,19 @@ export default function AboutPage() {
         {/* PHOTO GALLERY COLLAGE (GRID matching Image 4) */}
         <div className="about-gallery-grid">
           <div className="gallery-item item-left-tall">
-            <img src={GALLERY_IMAGES[0].src} alt={GALLERY_IMAGES[0].title} />
+            <img src={arduino2} alt="Arduino Training" />
           </div>
           <div className="gallery-item item-mid-top">
-            <img src={GALLERY_IMAGES[1].src} alt={GALLERY_IMAGES[1].title} />
+            <img src={arduino1} alt="Arduino Training" />
           </div>
           <div className="gallery-item item-mid-bottom">
-            <img src={GALLERY_IMAGES[3].src} alt={GALLERY_IMAGES[3].title} />
+            <img src={digital1} alt="Digital Marketing" />
           </div>
           <div className="gallery-item item-right-top">
-            <img src={GALLERY_IMAGES[2].src} alt={GALLERY_IMAGES[2].title} />
+            <img src={digital2} alt="Digital Marketing" />
           </div>
           <div className="gallery-item item-right-bottom">
-            <img src={GALLERY_IMAGES[4].src} alt={GALLERY_IMAGES[4].title} />
+            <img src={web1} alt="Web Development" />
           </div>
         </div>
       </div>
