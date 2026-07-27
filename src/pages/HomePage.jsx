@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ArrowUpRight,
   Users,
@@ -15,6 +15,23 @@ import { TRAINERS, TESTIMONIALS, BLOG_POSTS } from '../data/mockData';
 
 export default function HomePage() {
   const { navigateTo, openRegistrationModal } = useApp();
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const trainersPerPage = 4; // tampilkan 4 trainer per halaman
+  const totalPages = Math.ceil(TRAINERS.length / trainersPerPage);
+
+  const visibleTrainers = TRAINERS.slice(
+    currentPage * trainersPerPage,
+    (currentPage + 1) * trainersPerPage
+  );
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
+  };  
 
   return (
     <div className="page-home">
@@ -149,42 +166,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 3: TRAINER PROFESIONAL */}
-      <section className="section-container">
-        <div className="section-tag-badge"># Trainer Profesional</div>
-        <div className="section-header-split">
-          <div>
-            <h2 className="section-title">
-              Belajar Langsung dari Para <span className="highlight-text">Trainer</span> Profesional
-            </h2>
-            <p className="section-subtitle">
-              Para instruktur ahli berpengalaman siap membimbingmu, mendampingi proses belajar hingga 100% paham materi.
-            </p>
-          </div>
-
-          <div className="trainer-nav-controls">
-            <button className="btn-filter-tag active">Semua (5)</button>
-            <div className="slider-arrows">
-              <button className="arrow-btn" aria-label="Previous Trainer"><ChevronLeft size={18} /></button>
-              <button className="arrow-btn active" aria-label="Next Trainer"><ChevronRight size={18} /></button>
-            </div>
-          </div>
+    {/* SECTION 3: TRAINER PROFESIONAL */}
+    <section className="section-container">
+      <div className="section-tag-badge"># Trainer Profesional</div>
+      <div className="section-header-split">
+        <div>
+          <h2 className="section-title">
+            Belajar Langsung dari Para <span className="highlight-text">Trainer</span> Profesional
+          </h2>
+          <p className="section-subtitle">
+            Para instruktur ahli berpengalaman siap membimbingmu, mendampingi proses belajar hingga 100% paham materi.
+          </p>
         </div>
 
-        <div className="trainers-grid">
-          {TRAINERS.map((trainer, idx) => (
-            <div key={idx} className="trainer-card">
-              <div className="trainer-img-wrapper">
-                <img src={trainer.photo} alt={trainer.name} loading="lazy" />
-              </div>
-              <div className="trainer-info">
-                <h3>{trainer.name}</h3>
-                <span className="trainer-role">{trainer.role}</span>
-              </div>
-            </div>
-          ))}
+        <div className="trainer-nav-controls">
+          <button className="btn-filter-tag active">Semua ({TRAINERS.length})</button>
+          <div className="slider-arrows">
+            <button
+              className="arrow-btn"
+              onClick={handlePrev}
+              disabled={currentPage === 0}
+              aria-label="Previous Trainer"
+              style={{ opacity: currentPage === 0 ? 0.4 : 1 }}
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              className="arrow-btn active"
+              onClick={handleNext}
+              disabled={currentPage === totalPages - 1}
+              aria-label="Next Trainer"
+              style={{ opacity: currentPage === totalPages - 1 ? 0.4 : 1 }}
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <div className="trainers-grid">
+        {visibleTrainers.map((trainer, idx) => (
+          <div key={idx} className="trainer-card">
+            <div className="trainer-img-wrapper">
+              <img src={trainer.photo} alt={trainer.name} loading="lazy" />
+            </div>
+            <div className="trainer-info">
+              <h3>{trainer.name}</h3>
+              <span className="trainer-role">{trainer.role}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
 
       {/* SECTION 4: TESTIMONIALS */}
       <section className="section-container bg-muted">
