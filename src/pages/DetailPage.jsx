@@ -4,11 +4,23 @@ import { useApp } from '../context/AppContext';
 import { TRAINING_COURSES } from '../data/mockData';
 
 export default function DetailPage() {
-  const { openRegistrationModal } = useApp();
+  const { openRegistrationModal, selectedCourseId } = useApp();
   const [activeDay, setActiveDay] = useState('hari1');
-  const course = TRAINING_COURSES[0]; // AI Diagnosis Penyakit
 
-  const currentSchedule = course.scheduleDays[activeDay];
+  const defaultCourse = TRAINING_COURSES[0];
+  const foundCourse = TRAINING_COURSES.find((c) => c.id === selectedCourseId);
+  const course = {
+    ...defaultCourse,
+    ...foundCourse,
+    tujuan: foundCourse?.tujuan || defaultCourse.tujuan,
+    scheduleDays: foundCourse?.scheduleDays || defaultCourse.scheduleDays,
+    metodePelatihan: foundCourse?.metodePelatihan || defaultCourse.metodePelatihan,
+    targetPeserta: foundCourse?.targetPeserta || defaultCourse.targetPeserta,
+    targetHasil: foundCourse?.targetHasil || defaultCourse.targetHasil,
+    pricing: foundCourse?.pricing || defaultCourse.pricing,
+  };
+
+  const currentSchedule = course.scheduleDays[activeDay] || course.scheduleDays['hari1'];
 
   return (
     <div className="page-detail-pelatihan">

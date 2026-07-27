@@ -14,8 +14,7 @@ export default function Navbar({ activePage, setActivePage, onOpenModal }) {
     <header className="navbar-container">
       <div className="navbar-pill">
         <div className="navbar-logo" onClick={() => setActivePage('home')}>
-          <span className="logo-oemah">Oemah</span>
-          <span className="logo-training">Training</span>
+          <span className="logo-oemah">Oemah Training</span>
         </div>
 
         <nav className="navbar-links">
@@ -29,11 +28,10 @@ export default function Navbar({ activePage, setActivePage, onOpenModal }) {
                   setActivePage(item.id);
                 }
               }}
-              className={`nav-link ${
-                activePage === item.id || (item.id === 'training' && (activePage === 'training-list' || activePage === 'detail-pelatihan'))
-                  ? 'active'
-                  : ''
-              }`}
+              className={`nav-link ${activePage === item.id || (item.id === 'training' && (activePage === 'training-list' || activePage === 'detail-pelatihan'))
+                ? 'active'
+                : ''
+                }`}
             >
               {item.label}
             </button>

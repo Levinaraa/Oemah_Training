@@ -26,7 +26,7 @@ export default function AboutPage() {
         {/* STATS ROW (4 CARDS) */}
         <div className="about-stats-grid">
           <div className="stat-card">
-            <div className="stat-icon-box"><UserCheck size={22} /></div>
+            <div className="stat-icon-box"><UserCheck size={20} /></div>
             <div className="stat-content">
               <h3>5 Trainer</h3>
               <p>Praktisi berpengalaman siap membimbingmu.</p>
@@ -34,7 +34,7 @@ export default function AboutPage() {
           </div>
 
           <div className="stat-card">
-            <div className="stat-icon-box"><BookOpen size={22} /></div>
+            <div className="stat-icon-box"><BookOpen size={20} /></div>
             <div className="stat-content">
               <h3>4 Topik</h3>
               <p>Pilihan materi untuk mengembangkan skill-mu.</p>
@@ -42,7 +42,7 @@ export default function AboutPage() {
           </div>
 
           <div className="stat-card">
-            <div className="stat-icon-box"><Users size={22} /></div>
+            <div className="stat-icon-box"><Users size={20} /></div>
             <div className="stat-content">
               <h3>3 Komunitas</h3>
               <p>Tempat untuk terhubung dan tumbuh bersama.</p>
@@ -50,7 +50,7 @@ export default function AboutPage() {
           </div>
 
           <div className="stat-card">
-            <div className="stat-icon-box"><MapPin size={22} /></div>
+            <div className="stat-icon-box"><MapPin size={20} /></div>
             <div className="stat-content">
               <h3>Purwokerto</h3>
               <p>Berbasis di Purwokerto, Jawa Tengah</p>

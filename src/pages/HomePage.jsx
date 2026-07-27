@@ -4,11 +4,12 @@ import {
   Users,
   MessageSquare,
   BookOpen,
-  Monitor,
+
   Star,
   Calendar as CalendarIcon,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  TimerIcon
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { TRAINERS, TESTIMONIALS, BLOG_POSTS } from '../data/mockData';
@@ -61,7 +62,7 @@ export default function HomePage() {
 
       {/* SECTION 1: PENGALAMAN BELAJAR */}
       <section className="section-container">
-        <div className="section-tag-badge"># Pengalaman Belajar</div>
+        <div className="section-tag-badge">Pengalaman Belajar</div>
         <div className="section-header-split">
           <h2 className="section-title">
             Pengalaman <span className="highlight-text">Belajar</span> Secara Langsung
@@ -75,25 +76,25 @@ export default function HomePage() {
           <div className="feature-card">
             <div className="feature-icon-box"><Users size={24} /></div>
             <h3>Peserta</h3>
-            <p>Mempunyai antusiasme tinggi untuk memperdalam dan meningkatkan keahlian di bidang IT.</p>
+            <p>Terbuka untuk siswa, mahasiswa, karyawan, guru, profesional atau bahkan orang awam.</p>
           </div>
 
           <div className="feature-card">
             <div className="feature-icon-box"><MessageSquare size={24} /></div>
             <h3>Komunitas</h3>
-            <p>Wadah yang tepat untuk terhubung, berdiskusi, dan tumbuh bersama sesama praktisi IT.</p>
+            <p>Wadah yang tepat untuk terhubung, berdiskusi, dan tumbuh bersama.</p>
           </div>
 
           <div className="feature-card">
             <div className="feature-icon-box"><BookOpen size={24} /></div>
             <h3>Materi Terkini</h3>
-            <p>Materi selalu diperbarui sesuai dengan kebutuhan industri dan tren perkembangan teknologi terbaru.</p>
+            <p>Materi selalu mengikuti tren teknologi terkini dan diperbarui sesuai kebutuhan.</p>
           </div>
 
           <div className="feature-card">
-            <div className="feature-icon-box"><Monitor size={24} /></div>
-            <h3>Media Interaktif</h3>
-            <p>Metode pembelajaran yang praktis, interaktif, dan mudah diaplikasikan pada dunia kerja nyata.</p>
+            <div className="feature-icon-box"><TimerIcon size={24} /></div>
+            <h3>Waktu Fleksibel</h3>
+            <p>Waktu pelaksanaan training yang fleksibel menyesuaikan dengan kebutuhan peserta</p>
           </div>
         </div>
       </section>
@@ -112,46 +113,44 @@ export default function HomePage() {
         <div className="topics-grid">
           <div className="topic-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
-              <span className="topic-badge">Top 1</span>
-              <span className="topic-tag">Live Class</span>
-            </div>
+              <span className="topic-badge">Topik 1</span>
+                </div>
             <h3>Software Development</h3>
-            <p>Belajar arsitektur perangkat lunak, clean code, dan metodologi pengembangan sistem modern.</p>
+            <p>Belajar arsitektur perangkat lunak, clean code, dan metodologi pengembangan sistem modern...</p>
           </div>
 
           <div className="topic-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
-              <span className="topic-badge">Top 2</span>
-              <span className="topic-tag">Live Class</span>
+              <span className="topic-badge">Topik 2</span>
+              
             </div>
             <h3>Data Science & Big Data</h3>
-            <p>Eksplorasi data, olah big data, machine learning, dan analisis statistik terapan.</p>
-          </div>
-
-          {/* Active Highlighted Green Card */}
-          <div className="topic-card topic-card-active" onClick={() => navigateTo('training-list')}>
-            <div className="topic-header">
-              <span className="topic-badge active-badge">Top 3</span>
-              <span className="topic-tag active-tag">Live Class</span>
-            </div>
-            <h3>Digital Marketing & SEO</h3>
-            <p>Strategi pertumbuhan digital, optimasi mesin pencari, serta iklan digital berkinerja tinggi.</p>
+            <p>Eksplorasi data, olah big data, machine learning, dan analisis statistik terapan...</p>
           </div>
 
           <div className="topic-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
-              <span className="topic-badge">Top 4</span>
-              <span className="topic-tag">Live Class</span>
+              <span className="topic-badge">Topik 3</span>
+              
+            </div>
+            <h3>Digital Marketing dan Teknik SEO</h3>
+            <p>Semakin hari masyarakat semakin melekat dengan internet terutama sosial media...</p>
+          </div>
+
+          <div className="topic-card" onClick={() => navigateTo('training-list')}>
+            <div className="topic-header">
+              <span className="topic-badge">Topik 4</span>
             </div>
             <h3>Arduino & Robotika</h3>
-            <p>Integrasi hardware, sensor pintar, mikrokokontroler, dan sistem otomatisasi berbasis IoT.</p>
+            <p>Integrasi hardware, sensor pintar, mikrokokontroler, dan sistem otomatisasi berbasis IoT...</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 3: TRAINER PROFESIONAL */}
       <section className="section-container">
-        <div className="section-tag-badge"># Trainer Profesional</div>
+        <div className="section-tag-badge"> Meet Our Trainers
+         </div> 
         <div className="section-header-split">
           <div>
             <h2 className="section-title">
@@ -163,8 +162,7 @@ export default function HomePage() {
           </div>
 
           <div className="trainer-nav-controls">
-            <button className="btn-filter-tag active">Semua (5)</button>
-            <div className="slider-arrows">
+                <div className="slider-arrows">
               <button className="arrow-btn" aria-label="Previous Trainer"><ChevronLeft size={18} /></button>
               <button className="arrow-btn active" aria-label="Next Trainer"><ChevronRight size={18} /></button>
             </div>
@@ -188,7 +186,9 @@ export default function HomePage() {
 
       {/* SECTION 4: TESTIMONIALS */}
       <section className="section-container bg-muted">
-        <div className="section-tag-badge center"># Training Testimonials</div>
+        <div className="section-tag-badge center">
+         Learning Experiences
+        </div>
         <h2 className="section-title text-center">
           Mereka yang Telah <span className="highlight-text">Berlatih</span> Bersama Kami
         </h2>
@@ -216,10 +216,12 @@ export default function HomePage() {
 
       {/* SECTION 5: BLOG UPDATE */}
       <section className="section-container">
-        <div className="section-tag-badge"># Artikel Terbaru</div>
+        <div className="section-tag-badge">
+         Explore and Learn
+        </div>
         <div className="section-header-split">
           <h2 className="section-title">
-            Update Seputar <span className="highlight-text">Dunia Teknologi</span>
+            Update Seputar Dunia <span className="highlight-text">Teknologi</span>
           </h2>
           <button className="btn-read-more-link" onClick={() => navigateTo('training-list')}>
             Lihat Semua Artikel <ArrowUpRight size={16} />
@@ -234,10 +236,10 @@ export default function HomePage() {
               </div>
               <div className="blog-content">
                 <h3>{post.title}</h3>
+                <span className="blog-date"><CalendarIcon size={14} /> {post.date}</span>
                 <p>{post.snippet}</p>
                 <div className="blog-footer">
-                  <span className="blog-date"><CalendarIcon size={14} /> {post.date}</span>
-                  <button className="btn-read-more" onClick={() => navigateTo('training-list')}>Read More</button>
+                <button className="btn-read-more" onClick={() => navigateTo('training-list')}>Read More</button>
                 </div>
               </div>
             </div>
