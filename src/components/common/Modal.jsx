@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X, CheckCircle } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
-import { COURSES } from '../../data/coursesData';
+import { TRAINING_COURSES } from '../../data/mockData';
 
 export default function Modal() {
   const { isModalOpen, closeRegistrationModal, selectedCourseId, selectedPackage } = useApp();
@@ -13,6 +13,16 @@ export default function Modal() {
     course: selectedCourseId || 'ai-diagnosis-penyakit',
     packageType: selectedPackage || 'online',
   });
+
+  React.useEffect(() => {
+    if (isModalOpen) {
+      setFormData((prev) => ({
+        ...prev,
+        course: selectedCourseId || 'ai-diagnosis-penyakit',
+        packageType: selectedPackage || 'online',
+      }));
+    }
+  }, [isModalOpen, selectedCourseId, selectedPackage]);
 
   if (!isModalOpen) return null;
 
@@ -95,7 +105,7 @@ export default function Modal() {
                   value={formData.course}
                   onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                 >
-                  {COURSES.map((c) => (
+                  {TRAINING_COURSES.map((c) => (
                     <option key={c.id} value={c.id}>
                       {c.title}
                     </option>

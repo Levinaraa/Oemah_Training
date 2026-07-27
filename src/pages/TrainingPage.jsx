@@ -41,7 +41,7 @@ export default function TrainingPage() {
         </div>
 
         <div className="results-count">
-          Menampilkan 1-6 dari 18 Pelatihan
+          Menampilkan {filteredCourses.length > 0 ? 1 : 0}-{Math.min(filteredCourses.length, 4)} dari {filteredCourses.length} Pelatihan
         </div>
 
         {/* MAIN 2-COLUMN LAYOUT */}
@@ -107,11 +107,11 @@ export default function TrainingPage() {
             <div className="sidebar-widget">
               <h4 className="widget-title">Recent Post</h4>
               <ul className="widget-list">
-                <li onClick={() => navigateTo('detail-pelatihan')}>Pengembangan AI untuk Diagnosis Penyakit</li>
-                <li>Keamanan Sistem dan Pengendalian Resiko</li>
-                <li>Mengelola Risiko SDM di Lingkungan IT</li>
-                <li>Dasar Sistem Data Kesehatan Digital</li>
-                <li>Menerapkan AI dengan Aman dan Tepat</li>
+                <li onClick={() => navigateTo('detail-pelatihan', 'ai-diagnosis-penyakit')}>Pengembangan AI untuk Diagnosis Penyakit</li>
+                <li onClick={() => navigateTo('detail-pelatihan', 'keamanan-sistem')}>Keamanan Sistem dan Pengendalian Resiko</li>
+                <li onClick={() => navigateTo('detail-pelatihan', 'mengelola-risiko-sdm-1')}>Mengelola Risiko SDM di Lingkungan IT</li>
+                <li onClick={() => navigateTo('detail-pelatihan', 'dasar-data-kesehatan')}>Dasar Sistem Data Kesehatan Digital</li>
+                <li onClick={() => navigateTo('detail-pelatihan', 'menerapkan-ai-aman')}>Menerapkan AI dengan Aman dan Tepat</li>
               </ul>
             </div>
 
