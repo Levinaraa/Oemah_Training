@@ -192,25 +192,31 @@ export const CATEGORIES = [
 
 export const TRAINERS = [
   {
-    name: 'Tonny Axson, M.Kom',
-    role: 'Specialist Software',
+    name: 'Agus Darmawan, S.Kom, M.Cs',
+    role: 'CEO',
     bio: 'Praktisi Senior Software Engineering dengan 10+ tahun pengalaman memimpin tim IT.',
     photo: '/images/trainer_tonny_1785124706053.png'
   },
   {
-    name: 'Rachel Rose, M.Kom',
-    role: 'Data Scientist',
+    name: 'Nur Ichsan, S.Kom, M.Cs',
+    role: 'IT Expert',
     bio: 'Pakar Machine Learning dan Analisis Data Medis berlisensi internasional.',
     photo: '/images/trainer_rachel_1785124718492.png'
   },
   {
-    name: 'Ghianina Shidqia, S.Kom',
-    role: 'UI/UX Designer',
+    name: 'Dr (Cand) Condro Kartiko, S.Kom, M.T.I',
+    role: 'Android Developer',
     bio: 'Lead UI/UX Designer yang berfokus pada design system dan riset antarmuka pengguna.',
     photo: '/images/trainer_ghianina_1785124732608.png'
   },
   {
-    name: 'Ophelia Rose, S.Kom',
+    name: 'Aulia Desy Nur Utomo, S.Kom, M.Cs',
+    role: 'IoT Expert',
+    bio: 'Spesialis Growth Marketing dan Strategi Periklanan Digital untuk Industri IT.',
+    photo: '/images/trainer_rachel_1785124718492.png'
+  },
+  {
+    name: 'M Irham Akbar, S.Kom, M.Cs',
     role: 'Digital Marketer',
     bio: 'Spesialis Growth Marketing dan Strategi Periklanan Digital untuk Industri IT.',
     photo: '/images/trainer_rachel_1785124718492.png'

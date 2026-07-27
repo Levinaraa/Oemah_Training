@@ -2,19 +2,22 @@ import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import Navbar from './components/common/Navbar';
 import FooterCTA from './components/common/FooterCTA';
+import Footer from './components/common/Footer';
 import Modal from './components/common/Modal';
 
 import HomePage from './pages/HomePage';
 import TrainingPage from './pages/TrainingPage';
+import TrainerPage from './pages/TrainerPage';
 import DetailPage from './pages/DetailPage';
 import AboutPage from './pages/AboutPage';
+import FotoPage from './pages/FotoPage';
+import KontakPage from './pages/KontakPage';
 
 import './index.css';
 import './App.css';
 
 function MainLayout() {
   const { activePage } = useApp();
-
   const renderCurrentPage = () => {
     switch (activePage) {
       case 'home':
@@ -24,8 +27,14 @@ function MainLayout() {
       case 'training-list':
       case 'training':
         return <TrainingPage />;
+      case 'trainer':
+        return <TrainerPage />;
       case 'detail-pelatihan':
         return <DetailPage />;
+      case 'foto':
+        return <FotoPage />;
+      case 'kontak-kami':
+        return <KontakPage />;
       default:
         return <HomePage />;
     }
@@ -38,6 +47,7 @@ function MainLayout() {
         {renderCurrentPage()}
       </main>
       <FooterCTA />
+      <Footer />
       <Modal />
     </div>
   );
