@@ -35,7 +35,7 @@ export default function FotoPage() {
       <div className="container">
         <div className="page-foto-header">
           <h1>
-            Galeri <span style={{ color: '#6a852b' }}>Kegiatan</span>
+            Galeri <span style={{ color: '#547792' }}>Kegiatan</span>
           </h1>
           <p>
             Dokumentasi berbagai kegiatan pelatihan, workshop, seminar, dan
@@ -73,7 +73,7 @@ export default function FotoPage() {
         <div className="page-foto-cta">
           <div>
             <h3>Ikuti kegiatan kami selanjutnya?</h3>
-            <p>Daftar sekarang dan jadilah bagian dari komunitas pembelajar.</p>
+            <p style={{ color: 'var(--text-muted)' }}>Daftar sekarang dan jadilah bagian dari komunitas pembelajar.</p>
           </div>
           <button className="page-foto-cta-button" onClick={() => navigateTo('kontak-kami')}>
             Hubungi Kami

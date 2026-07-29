@@ -195,6 +195,14 @@ export const TRAINERS = [
     name: 'Agus Darmawan, S.Kom, M.Cs',
     role: 'CEO',
     bio: 'Praktisi Senior Software Engineering dengan 10+ tahun pengalaman memimpin tim IT.',
+    description:
+      'Berfokus menggabungkan keahlian manajemen produk dan pengembangan aplikasi enterprise. Aktif membantu tim membangun solusi digital skala organisasi.',
+    education: ['S1 Sistem Informasi - Universitas Indonesia', 'S2 Teknologi Informasi - Universitas Gadjah Mada'],
+    portfolio: [
+      { title: 'Platform HRIS Perusahaan', url: '#' },
+      { title: 'Aplikasi Manajemen Proyek Agile', url: '#' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/',
     photo: '/images/trainer1.png'
   },
 
@@ -202,24 +210,56 @@ export const TRAINERS = [
     name: 'Nur Ichsan, S.Kom, M.Cs',
     role: 'IT Expert',
     bio: 'Pakar Machine Learning dan Analisis Data Medis berlisensi internasional.',
+    description:
+      'Berfokus pada penerapan AI di sektor kesehatan untuk optimasi diagnosis dan prediksi data medis.',
+    education: ['S1 Ilmu Komputer - Universitas Brawijaya', 'S2 Data Science - Institut Teknologi Bandung'],
+    portfolio: [
+      { title: 'Model Prediksi Risiko Kesehatan', url: '#' },
+      { title: 'Dashboard Analitik Data Pasien', url: '#' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/',
     photo: '/images/trainer2.png'
   },
   {
     name: 'Dr (Cand) Condro Kartiko, S.Kom, M.T.I',
     role: 'Android Developer',
     bio: 'Lead UI/UX Designer yang berfokus pada design system dan riset antarmuka pengguna.',
+    description:
+      'Berfokus memimpin tim mobile dan desain untuk menghadirkan pengalaman aplikasi Android yang intuitif dan konsisten.',
+    education: ['S1 Teknik Informatika - Universitas Diponegoro', 'S2 Teknologi Informasi - Universitas Airlangga'],
+    portfolio: [
+      { title: 'Aplikasi E-Commerce Mobile', url: '#' },
+      { title: 'Sistem Reservasi Android', url: '#' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/',
     photo: '/images/trainer3.png'
   },
   {
     name: 'Aulia Desy Nur Utomo, S.Kom, M.Cs',
     role: 'IoT Expert',
     bio: 'Spesialis Growth Marketing dan Strategi Periklanan Digital untuk Industri IT.',
+    description:
+      'Berfokus menggabungkan pemahaman IoT dan pemasaran digital untuk menghubungkan produk teknologi dengan pengguna akhir.',
+    education: ['S1 Sistem Informasi - Universitas Padjadjaran', 'S2 Magister Komunikasi - Universitas Indonesia'],
+    portfolio: [
+      { title: 'Proyek Smart Home IoT', url: '#' },
+      { title: 'Kampanye Digital Produk Teknologi', url: '#' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/',
     photo: '/images/trainer4.png'
   },
   {
     name: 'M Irham Akbar, S.Kom, M.Cs',
     role: 'Digital Marketer',
     bio: 'Spesialis Growth Marketing dan Strategi Periklanan Digital untuk Industri IT.',
+    description:
+      'Berfokus merancang strategi digital yang mendorong pertumbuhan brand dan konversi melalui kampanye berbayar dan konten kreatif.',
+    education: ['S1 Manajemen Bisnis - Universitas Negeri Malang', 'S2 Marketing - Universitas Gadjah Mada'],
+    portfolio: [
+      { title: 'Kampanye Social Media Terintegrasi', url: '#' },
+      { title: 'Optimasi SEO dan Google Ads', url: '#' }
+    ],
+    linkedin: 'https://www.linkedin.com/in/',
     photo: '/images/trainer5.png'
   }
 ];

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/KontakPage.css';
+import { FaMapMarkerAlt, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 export default function KontakPage() {
   return (
@@ -28,10 +29,10 @@ export default function KontakPage() {
 
             <div className="info-card">
               <div className="icon">
-                <i className="fas fa-map-marker-alt"></i>
+                <FaMapMarkerAlt />
               </div>
               <div>
-                <h4>Headquarters</h4>
+                <h4>Lokasi</h4>
                 <span>
                   Purwokerto, Kabupaten Banyumas,
                   Jawa Tengah, Indonesia
@@ -41,7 +42,7 @@ export default function KontakPage() {
 
             <div className="info-card">
               <div className="icon">
-                <i className="fas fa-envelope"></i>
+                <FaEnvelope />
               </div>
               <div>
                 <h4>Email & Support</h4>
@@ -51,7 +52,7 @@ export default function KontakPage() {
 
             <div className="info-card">
               <div className="icon">
-                <i className="fab fa-whatsapp"></i>
+                <FaWhatsapp />
               </div>
               <div>
                 <h4>WhatsApp & Hotline</h4>

@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaLinkedinIn, FaTimes } from 'react-icons/fa';
 import { useApp } from '../context/AppContext';
 import { TRAINERS } from '../data/mockData';
 import '../styles/TrainerPage.css';
 
 export default function TrainerPage() {
   const { navigateTo } = useApp();
+  const [activeTrainer, setActiveTrainer] = useState(null);
+
+  const openTrainerDetail = (trainer) => {
+    setActiveTrainer(trainer);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeTrainerDetail = () => {
+    setActiveTrainer(null);
+    document.body.style.overflow = '';
+  };
 
   return (
     <div className="page-trainer">
       <div className="container">
         <div className="page-trainer-header">
           <h1>
-            Trainer <span style={{ color: '#6a852b' }}>Profesional</span>
+            Trainer <span className="highlight-text">Profesional</span>
           </h1>
           <p>
             Oemah Training didukung oleh praktisi muda IT dan lulusan universitas terbaik
@@ -27,15 +39,21 @@ export default function TrainerPage() {
 
         <div className="page-trainer-grid">
           {TRAINERS.map((trainer, idx) => (
-            <div key={idx} className="page-trainer-card">
+            <button
+              key={idx}
+              type="button"
+              className="page-trainer-card"
+              onClick={() => openTrainerDetail(trainer)}
+            >
               <div className="trainer-img-wrapper">
                 <img src={trainer.photo} alt={trainer.name} loading="lazy" />
               </div>
               <div className="trainer-info">
                 <h3>{trainer.name}</h3>
                 <span className="trainer-role">{trainer.role}</span>
+                <p className="trainer-card-desc">{trainer.bio}</p>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
@@ -51,6 +69,73 @@ export default function TrainerPage() {
           </button>
         </div>
       </div>
+
+      {activeTrainer && (
+        <div className="trainer-detail-overlay" onClick={closeTrainerDetail}>
+          <div className="trainer-detail-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="trainer-detail-close-icon"
+              type="button"
+              onClick={closeTrainerDetail}
+              aria-label="Tutup detail trainer"
+            >
+              <FaTimes size={18} />
+            </button>
+
+            <div className="trainer-detail-content">
+              <div className="trainer-detail-image-wrapper">
+                <img src={activeTrainer.photo} alt={activeTrainer.name} loading="lazy" />
+              </div>
+
+              <div className="trainer-detail-body">
+                <div className="trainer-detail-header">
+                  <div>
+                    <h2>{activeTrainer.name}</h2>
+                    <p className="trainer-detail-role">{activeTrainer.role}</p>
+                  </div>
+                  <a
+                    href={activeTrainer.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="trainer-linkedin"
+                  >
+                    <FaLinkedinIn size={18} />
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
+
+                <p className="trainer-detail-bio">{activeTrainer.description || activeTrainer.bio}</p>
+
+                <div className="trainer-detail-section">
+                  <h4>Informasi Pendidikan</h4>
+                  <ul>
+                    {activeTrainer.education?.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="trainer-detail-section">
+                  <h4>Portofolio Terkait</h4>
+                  <ul>
+                    {activeTrainer.portfolio?.map((item, index) => (
+                      <li key={index}>
+                        {item.url ? (
+                          <a href={item.url} target="_blank" rel="noreferrer">
+                            {item.title}
+                          </a>
+                        ) : (
+                          item.title
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

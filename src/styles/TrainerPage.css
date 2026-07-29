@@ -3,7 +3,7 @@
 .page-trainer {
   width: 100%;
   min-height: 100vh;
-  padding: 50px 0;
+  padding: 64px 0 88px;
   background: var(--bg-light);
 }
 
@@ -18,34 +18,45 @@
 .page-trainer-header {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 18px;
+  margin-bottom: 28px;
+  max-width: 720px;
 }
 
 .page-trainer-header h1 {
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 800;
+  line-height: 1.25;
   color: var(--text-main);
+}
+
+.page-trainer-header .highlight-text {
+  color: #547792;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
 }
 
 .page-trainer-header p {
   margin: 0;
   line-height: 1.8;
   color: var(--text-muted);
+  font-size: 0.98rem;
 }
 
 .page-trainer-divider {
   border: none;
   height: 1px;
-  background: var(--border-light);
-  margin: 32px 0;
+  background: rgba(148, 163, 184, 0.18);
+  margin: 40px 0;
 }
 
 .page-trainer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
 }
 
 .page-trainer-card {
@@ -73,15 +84,15 @@
 }
 
 .trainer-info {
-  padding: 22px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .trainer-info h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-main);
 }
@@ -92,15 +103,24 @@
   font-size: 0.95rem;
 }
 
+.trainer-card-desc {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  min-height: 3.2em;
+}
+
 .page-trainer-cta {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 28px;
-  margin-top: 32px;
+  padding: 34px;
+  margin-top: 36px;
   background: #ffffff;
   border: 1px solid var(--border-light);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .page-trainer-cta h3 {
@@ -133,9 +153,165 @@
   transform: translateY(-1px);
 }
 
+.page-trainer-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  text-align: left;
+}
+
+.page-trainer-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.trainer-detail-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.55);
+  padding: 24px;
+  z-index: 200;
+}
+
+.trainer-detail-modal {
+  width: min(760px, 100%);
+  max-height: min(90vh, 100%);
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.trainer-detail-close-icon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.trainer-detail-close-icon:hover {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.trainer-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.trainer-detail-image-wrapper {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trainer-detail-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.trainer-detail-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.trainer-detail-header h2 {
+  margin: 0;
+  font-size: 1.85rem;
+  color: var(--text-main);
+}
+
+.trainer-detail-role {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.trainer-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #0a66c2;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.trainer-detail-bio {
+  margin: 0 0 24px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.trainer-detail-section {
+  margin-bottom: 20px;
+}
+
+.trainer-detail-section h4 {
+  margin: 0 0 12px;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.trainer-detail-section ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+}
+
+.trainer-detail-section li {
+  margin-bottom: 10px;
+}
+
+.trainer-detail-section a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* remove obsolete close button styling to keep trainer detail design consistent */
+
 @media (max-width: 900px) {
   .page-trainer-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .trainer-detail-content {
+    grid-template-columns: 1fr;
   }
 }
 

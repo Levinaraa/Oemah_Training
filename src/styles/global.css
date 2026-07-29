@@ -1267,6 +1267,18 @@
   right: 30px;
 }
 
+/* Footer CTA badge color override */
+.footer-cta-card .badge-icon {
+  width: 52px;
+  height: 52px;
+  font-size: 1.05rem;
+  border-radius: 12px;
+  background-color: rgba(100,116,139,0.08);
+  border: 2px solid #64748b;
+  color: #64748b;
+  box-shadow: 0 10px 25px rgba(2, 6, 23, 0.45);
+}
+
 /* REGISTRATION MODAL */
 .modal-overlay {
   position: fixed;

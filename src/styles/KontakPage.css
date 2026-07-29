@@ -45,7 +45,7 @@
 }
 
 .contact-left {
-  background: #0b1d0b;
+  background: var(--primary);
   color: #fff;
   border-radius: 22px;
   padding: 40px;
@@ -72,12 +72,12 @@
 .icon {
   width: 55px;
   height: 55px;
-  background: rgba(140, 198, 63, .18);
+  background: #64748b;
   border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #8cc63f;
+  color: #ffffff;
   font-size: 20px;
   flex-shrink: 0;
 }
