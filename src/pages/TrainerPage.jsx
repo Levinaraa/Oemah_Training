@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { FaLinkedinIn, FaTimes } from 'react-icons/fa';
 import { useApp } from '../context/AppContext';
 import { TRAINERS } from '../data/mockData';
 import '../styles/TrainerPage.css';
 
 export default function TrainerPage() {
-  const { navigateTo } = useApp();
-  const [activeTrainer, setActiveTrainer] = useState(null);
+  const { navigateTo, activeTrainer, openTrainerDetail, closeTrainerDetail } = useApp();
 
-  const openTrainerDetail = (trainer) => {
-    setActiveTrainer(trainer);
-    document.body.style.overflow = 'hidden';
-  };
+  useEffect(() => {
+    if (activeTrainer) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }
+  }, [activeTrainer]);
 
-  const closeTrainerDetail = () => {
-    setActiveTrainer(null);
+  const closeTrainerDetailHandler = () => {
+    closeTrainerDetail();
     document.body.style.overflow = '';
   };
 
@@ -71,12 +74,12 @@ export default function TrainerPage() {
       </div>
 
       {activeTrainer && (
-        <div className="trainer-detail-overlay" onClick={closeTrainerDetail}>
+        <div className="trainer-detail-overlay" onClick={closeTrainerDetailHandler}>
           <div className="trainer-detail-modal" onClick={(e) => e.stopPropagation()}>
             <button
               className="trainer-detail-close-icon"
               type="button"
-              onClick={closeTrainerDetail}
+              onClick={closeTrainerDetailHandler}
               aria-label="Tutup detail trainer"
             >
               <FaTimes size={18} />

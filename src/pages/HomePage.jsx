@@ -15,7 +15,7 @@ import { useApp } from '../context/AppContext';
 import { TRAINERS, TESTIMONIALS, BLOG_POSTS } from '../data/mockData';
 
 export default function HomePage() {
-  const { navigateTo, openRegistrationModal } = useApp();
+  const { navigateTo, openRegistrationModal, setSelectedCategory, openTrainerDetail, openBlogDetail } = useApp();
 
   const [currentPage, setCurrentPage] = useState(0);
   const trainersPerPage = 4; // tampilkan 4 trainer per halaman
@@ -128,7 +128,7 @@ export default function HomePage() {
         </div>
 
         <div className="topics-grid">
-          <div className="feature-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => { setSelectedCategory('Software Development'); navigateTo('training-list'); }}>
             <div className="topic-header">
               <span className="topic-badge">Topik 1</span>
                 </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
             <p>Belajar arsitektur perangkat lunak, clean code, dan metodologi pengembangan sistem modern...</p>
           </div>
      
-          <div className="feature-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => { setSelectedCategory('Data Science & Big Data'); navigateTo('training-list'); }}>
             <div className="topic-header">
               <span className="topic-badge">Topik 2</span>
                 </div>
@@ -144,7 +144,7 @@ export default function HomePage() {
             <p>Eksplorasi data, olah big data, machine learning, dan analisis statistik terapan...</p>
           </div>
 
-          <div className="feature-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => { setSelectedCategory('Digital Marketing & SEO'); navigateTo('training-list'); }}>
             <div className="topic-header">
               <span className="topic-badge">Topik 3</span>
               
@@ -153,7 +153,7 @@ export default function HomePage() {
             <p>Semakin hari masyarakat semakin melekat dengan internet terutama sosial media...</p>
           </div>
 
-          <div className="feature-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => { setSelectedCategory('Arduino & Robotika'); navigateTo('training-list'); }}>
             <div className="topic-header">
               <span className="topic-badge">Topik 4</span>
             </div>
@@ -202,7 +202,12 @@ export default function HomePage() {
 
       <div className="trainers-grid">
         {visibleTrainers.map((trainer, idx) => (
-          <div key={idx} className="trainer-card">
+          <button
+            key={idx}
+            type="button"
+            className="trainer-card"
+            onClick={() => openTrainerDetail(trainer)}
+          >
             <div className="trainer-img-wrapper">
               <img src={trainer.photo} alt={trainer.name} loading="lazy" />
             </div>
@@ -210,7 +215,7 @@ export default function HomePage() {
               <h3>{trainer.name}</h3>
               <span className="trainer-role">{trainer.role}</span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </section>
@@ -270,7 +275,7 @@ export default function HomePage() {
                 <span className="blog-date"><CalendarIcon size={14} /> {post.date}</span>
                 <p>{post.snippet}</p>
                 <div className="blog-footer">
-                <button className="btn-read-more" onClick={() => navigateTo('training-list')}>Read More</button>
+                <button className="btn-read-more" onClick={() => openBlogDetail(post.id)}>Read More</button>
                 </div>
               </div>
             </div>

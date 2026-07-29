@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, UserCheck, BookOpen, Users, MapPin } from 'lucide-react';
+import { UserCheck, BookOpen, Users, MapPin } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/mockData';
 import '../styles/AboutPage.css';
 
@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className="about-header-grid">
           <div className="about-header-left">
             <h1 className="about-title">
-              Mengantar <span className="highlight-text">Teknologi</span> Lebih Dekat dengan Kita <ArrowUpRight size={28} className="inline-arrow" />
+              Mengantar <span className="highlight-text">Teknologi</span> Lebih Dekat dengan Kita
             </h1>
           </div>
           <div className="about-header-right">

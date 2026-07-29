@@ -7,6 +7,9 @@ export function AppProvider({ children }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourseId, setSelectedCourseId] = useState('ai-diagnosis-penyakit');
   const [selectedPackage, setSelectedPackage] = useState('online');
+  const [selectedCategory, setSelectedCategory] = useState('Semua');
+  const [activeTrainer, setActiveTrainer] = useState(null);
+  const [selectedBlogId, setSelectedBlogId] = useState(null);
 
   // Scroll to top automatically when changing pages
   useEffect(() => {
@@ -32,6 +35,24 @@ export function AppProvider({ children }) {
     setIsModalOpen(false);
   };
 
+  const openTrainerDetail = (trainer) => {
+    setActiveTrainer(trainer);
+    setActivePage('trainer');
+  };
+
+  const closeTrainerDetail = () => {
+    setActiveTrainer(null);
+  };
+
+  const openBlogDetail = (blogId) => {
+    setSelectedBlogId(blogId);
+    setActivePage('blog-detail');
+  };
+
+  const closeBlogDetail = () => {
+    setSelectedBlogId(null);
+  };
+
   const value = {
     activePage,
     navigateTo,
@@ -42,6 +63,14 @@ export function AppProvider({ children }) {
     setSelectedCourseId,
     selectedPackage,
     setSelectedPackage,
+    selectedCategory,
+    setSelectedCategory,
+    activeTrainer,
+    openTrainerDetail,
+    closeTrainerDetail,
+    selectedBlogId,
+    openBlogDetail,
+    closeBlogDetail,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

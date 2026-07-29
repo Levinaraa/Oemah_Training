@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Calendar as CalendarIcon, Search } from 'lucide-react';
+import { Calendar as CalendarIcon, Search } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { TRAINING_COURSES, CATEGORIES } from '../data/mockData';
 import Calendar from '../components/Calendar';
@@ -9,9 +9,7 @@ const ITEMS_PER_PAGE = 6;
 const DEFAULT_COURSE_IMAGE = "/images/trainer_tonny_1785124706053.png";
 
 export default function TrainingPage() {
-  const { navigateTo } = useApp();
-
-  const [selectedCategory, setSelectedCategory] = useState('Semua');
+  const { navigateTo, selectedCategory, setSelectedCategory } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredCourses = TRAINING_COURSES.filter((course) => {
@@ -46,11 +44,7 @@ export default function TrainingPage() {
             </span>{' '}
             yang Tepat
             <br />
-            untukmu{' '}
-            <ArrowUpRight
-              size={20}
-              className="inline-arrow"
-            />
+            untukmu
           </h1>
         </div>
 
@@ -122,6 +116,7 @@ export default function TrainingPage() {
 
                       {/* IMAGE */}
                       <div className="course-card-image">
+                        <div className="course-category-badge">{course.category}</div>
                         <img
                           src={imageUrl}
                           alt={course.title}

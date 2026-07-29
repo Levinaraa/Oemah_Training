@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Calendar as CalendarIcon, Edit3, CheckCircle2, XCircle } from 'lucide-react';
+import { ChevronLeft, Calendar as CalendarIcon, Edit3, CheckCircle2, XCircle } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { TRAINING_COURSES } from '../data/mockData';
 import '../styles/global.css';
 
 export default function DetailPage() {
-  const { openRegistrationModal, selectedCourseId } = useApp();
+  const { openRegistrationModal, selectedCourseId, navigateTo } = useApp();
   const [activeDay, setActiveDay] = useState('hari1');
 
   const defaultCourse = TRAINING_COURSES[0];
@@ -27,10 +27,16 @@ export default function DetailPage() {
     <div className="page-detail-pelatihan">
       <div className="container">
         {/* PAGE TITLE */}
-        <div className="page-header">
-          <h1 className="page-title">
-            Temukan <span className="highlight-text">Pelatihan</span> yang Tepat untukmu <ArrowUpRight size={28} className="inline-arrow" />
-          </h1>
+        <div className="detail-top-row">
+          <button
+            type="button"
+            className="detail-back-button"
+            onClick={() => navigateTo('training-list')}
+          >
+            <ChevronLeft size={18} />
+            Kembali ke Training
+          </button>
+          <span className="detail-topic-badge">{course.category}</span>
         </div>
 
         {/* COURSE MAIN HEADER */}

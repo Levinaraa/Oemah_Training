@@ -297,25 +297,44 @@ export const TESTIMONIALS = [
 
 export const BLOG_POSTS = [
   {
-    id: 1,
+    id: 'blog-1',
     title: 'Mengenal Sistem Cloud Computing',
     date: '18 Agustus 2026',
     snippet: 'Artikel ini membahas manfaat dan arsitektur cloud computing untuk mendukung efisiensi operasional perusahaan modern...',
-    image: '/images/hero_student_1785124744018.png'
+    image: '/images/hero_student_1785124744018.png',
+    content: 'Cloud computing memungkinkan perusahaan untuk memanfaatkan sumber daya komputasi on-demand tanpa perlu mengelola infrastruktur fisik sendiri. Pada artikel ini, kita akan membahas model layanan, benefit keamanan, dan strategi adopsi yang paling efektif untuk usaha kecil hingga besar.',
+    keyPoints: [
+      'Definisi dan model cloud computing (IaaS, PaaS, SaaS).',
+      'Keunggulan fleksibilitas dan biaya operasional.',
+      'Pertimbangan keamanan dan compliance.',
+      'Contoh implementasi nyata di industri.',
+    ]
   },
   {
-    id: 2,
+    id: 'blog-2',
     title: 'Digital Marketing Trends 2026: AI Integration',
     date: '17 Agustus 2026',
     snippet: 'Integrasi kecerdasan buatan dalam strategi pemasaran digital untuk meningkatkan konversi dan engagement pelanggan...',
-    image: '/images/trainer_rachel_1785124718492.png'
+    image: '/images/trainer_rachel_1785124718492.png',
+    content: 'AI mengubah cara pemasaran digital dijalankan, mulai dari personalisasi konten hingga pengoptimalan iklan secara real-time. Artikel ini mengulas tren terbaru dan taktik yang dapat Anda terapkan untuk meningkatkan ROI kampanye.',
+    keyPoints: [
+      'Personalisasi konten dengan rekomendasi berbasis AI.',
+      'Optimasi kampanye iklan otomatis.',
+      'Analitik prediktif untuk meningkatkan engagement.',
+    ]
   },
   {
-    id: 3,
+    id: 'blog-3',
     title: 'Cara Mengamankan Data Sistem Kesehatan Digital',
     date: '15 Agustus 2026',
     snippet: 'Langkah-langkah praktis dalam menjaga enkripsi dan keamanan data rekam medis elektronik sesuai regulasi...',
-    image: '/images/trainer_tonny_1785124706053.png'
+    image: '/images/trainer_tonny_1785124706053.png',
+    content: 'Data kesehatan digital sangat sensitif dan rentan terhadap serangan. Di artikel ini, kami membahas praktik terbaik enkripsi, kontrol akses, dan kepatuhan regulasi yang harus diikuti oleh layanan kesehatan.',
+    keyPoints: [
+      'Pentingnya enkripsi end-to-end.',
+      'Kontrol akses berbasis peran.',
+      'Regulasi dan standar keamanan data kesehatan.',
+    ]
   }
 ];
 

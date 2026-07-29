@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import TrainingPage from './pages/TrainingPage';
 import TrainerPage from './pages/TrainerPage';
 import DetailPage from './pages/DetailPage';
+import BlogDetailPage from './pages/BlogDetailPage';
 import AboutPage from './pages/AboutPage';
 import FotoPage from './pages/FotoPage';
 import KontakPage from './pages/KontakPage';
@@ -28,6 +29,8 @@ function MainLayout() {
         return <TrainerPage />;
       case 'detail-pelatihan':
         return <DetailPage />;
+      case 'blog-detail':
+        return <BlogDetailPage />;
       case 'foto':
         return <FotoPage />;
       case 'kontak-kami':
