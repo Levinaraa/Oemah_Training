@@ -1,0 +1,510 @@
+/* =========================================
+   TRAINING PAGE
+========================================= */
+
+.page-training-list {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 0 70px;
+  background: #ffffff;
+}
+
+.training-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.training-page-header {
+  margin-bottom: 28px;
+}
+
+.training-page-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.highlight-text {
+  color: var(--primary);
+}
+
+.inline-arrow {
+  color: var(--primary);
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.training-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(230px, 0.85fr);
+  gap: 38px;
+  align-items: start;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.training-content-area {
+  min-width: 0;
+}
+
+/* =========================================
+   CATEGORY TABS
+========================================= */
+
+.category-tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eef2ff;
+  overflow-x: auto;
+}
+
+.category-tabs-row::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0 0 16px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-tab:hover {
+  color: var(--primary);
+}
+
+.category-tab.active {
+  color: var(--text-main);
+}
+
+.category-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* =========================================
+   RESULT COUNT
+========================================= */
+
+.training-result-count {
+  margin-bottom: 26px;
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   TRAINING CARDS
+========================================= */
+
+.training-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.course-item-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(26, 50, 99, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.course-item-card:hover {
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.12);
+}
+
+/* =========================================
+   CARD IMAGE
+========================================= */
+
+.course-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.course-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.course-item-card:hover .course-card-image img {
+  transform: scale(1.04);
+}
+
+/* =========================================
+   CARD DETAILS
+========================================= */
+
+.course-card-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+
+.course-title {
+  margin-bottom: 8px;
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.course-price {
+  margin-bottom: 6px;
+  color: var(--secondary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.course-excerpt {
+  margin-bottom: 16px;
+  color: #64748b;
+  font-size: 0.80rem;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================================
+   CARD FOOTER
+========================================= */
+
+.course-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.course-date-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #b0b0b0;
+  font-size: 0.80rem;
+  white-space: nowrap;
+}
+
+.btn-card-cta {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-card-cta:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.training-sidebar {
+  min-width: 0;
+}
+
+.sidebar-search-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.sidebar-search-box input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 1px solid rgba(26, 50, 99, 0.16);
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+  font-size: 0.80rem;
+  outline: none;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.sidebar-search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.sidebar-search-box input::placeholder {
+  color: #94a3b8;
+}
+
+.calendar-widget {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 22px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.calendar-title {
+  color: #666666;
+  font-size: 0.80rem;
+  font-weight: 600;
+}
+
+.calendar-nav-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #c0c0c0;
+  cursor: pointer;
+}
+
+.calendar-grid-header,
+.calendar-grid-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.calendar-grid-header {
+  margin-bottom: 7px;
+}
+
+.calendar-day-label {
+  color: #999999;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.calendar-grid-body {
+  row-gap: 5px;
+}
+
+.calendar-cell {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border-radius: 999px;
+  color: #777777;
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.calendar-cell.other-month {
+  color: #d0d0d0;
+}
+
+.calendar-cell.event-day {
+  background:#f3f4f6;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.sidebar-widget {
+  margin-bottom: 22px;
+}
+
+.widget-title {
+  margin: 0 0 10px;
+  color: #555555;
+  font-size: 0.80rem;
+  font-weight: 600;
+}
+
+.widget-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.widget-list li {
+  margin-bottom: 6px;
+  color: #888888;
+  font-size: 0.70rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.widget-list li:hover {
+  color: var(--primary-hover);
+}
+
+.archive-list li {
+  margin-bottom: 5px;
+}
+
+.pagination-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.page-num {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #999999;
+  font-family: inherit;
+  font-size: 0.80rem;
+  cursor: pointer;
+}
+
+.page-num.active {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.page-nav-text {
+  padding: 0 5px;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 0.80rem;
+  cursor: pointer;
+}
+
+.page-nav-text.disabled {
+  color: #cccccc;
+  cursor: default;
+}
+
+.page-dots {
+  color: #aaaaaa;
+  font-size: 0.80rem;
+}
+
+.no-results-card {
+  grid-column: 1 / -1;
+  padding: 40px 20px;
+  text-align: center;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  color: #999999;
+  font-size: 0.80rem;
+}
+
+@media (max-width: 900px) {
+  .training-main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .training-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .sidebar-search-box {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-training-list {
+    padding-top: 35px;
+  }
+
+  .training-container {
+    padding: 0 16px;
+  }
+
+  .training-page-title {
+    font-size: 1.6rem;
+  }
+
+  .training-main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .training-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .training-sidebar {
+    display: block;
+  }
+
+  .category-tabs-row {
+    gap: 12px;
+  }
+}

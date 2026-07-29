@@ -1,9 +1,9 @@
 import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
-import Navbar from './components/common/Navbar';
-import FooterCTA from './components/common/FooterCTA';
-import Footer from './components/common/Footer';
-import Modal from './components/common/Modal';
+import Navbar from './components/Navbar';
+import FooterCTA from './components/FooterCTA';
+import Footer from './components/Footer';
+import Modal from './components/Modal';
 
 import HomePage from './pages/HomePage';
 import TrainingPage from './pages/TrainingPage';
@@ -12,9 +12,6 @@ import DetailPage from './pages/DetailPage';
 import AboutPage from './pages/AboutPage';
 import FotoPage from './pages/FotoPage';
 import KontakPage from './pages/KontakPage';
-
-import './index.css';
-import './App.css';
 
 function MainLayout() {
   const { activePage } = useApp();

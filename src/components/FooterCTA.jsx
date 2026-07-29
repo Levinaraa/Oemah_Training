@@ -1,7 +1,10 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
-export default function FooterCTA({ onOpenModal }) {
+export default function FooterCTA() {
+  const { openRegistrationModal } = useApp();
+
   return (
     <section className="footer-cta-wrapper">
       <div className="footer-cta-card">
@@ -13,7 +16,7 @@ export default function FooterCTA({ onOpenModal }) {
             Pelajari teknologi terkini, kembangkan keahlianmu, dan tumbuh bersama komunitas Oemah Training.
           </p>
           <div className="cta-actions">
-            <button className="btn-cta-primary" onClick={onOpenModal}>
+            <button className="btn-hero-primary" onClick={() => openRegistrationModal()}>
               Mulai Sekarang <ArrowUpRight size={18} />
             </button>
             <a
@@ -28,15 +31,16 @@ export default function FooterCTA({ onOpenModal }) {
         </div>
 
         <div className="footer-cta-visual">
-          <div className="badge-icon percent-badge">%</div>
+          <div className="badge-icon percent-badge" aria-hidden="true">%</div>
           <div className="hero-img-frame">
             <img
               src="/images/hero_student_1785124744018.png"
-              alt="Oemah Training Student"
+              alt="Oemah Training Professional"
               className="cta-student-img"
+              loading="lazy"
             />
           </div>
-          <div className="badge-icon code-badge">{`{ }`}</div>
+          <div className="badge-icon code-badge" aria-hidden="true">{`{ }`}</div>
         </div>
       </div>
     </section>

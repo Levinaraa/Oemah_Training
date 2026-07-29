@@ -1,7 +1,11 @@
 import React from 'react';
+import { useApp } from '../context/AppContext';
+import logoTraining from '../assets/gallery/logoTraining.png';
 
-export default function Navbar({ activePage, setActivePage, onOpenModal }) {
-  const navItems = [
+export default function Navbar() {
+  const { activePage, navigateTo, openRegistrationModal } = useApp();
+
+  const NAV_ITEMS = [
     { id: 'home', label: 'Home' },
     { id: 'tentang-kami', label: 'Tentang Kami' },
     { id: 'training', label: 'Training' },
@@ -10,35 +14,44 @@ export default function Navbar({ activePage, setActivePage, onOpenModal }) {
     { id: 'kontak-kami', label: 'Kontak Kami' },
   ];
 
+  const handleNavClick = (id) => {
+    if (id === 'training') {
+      navigateTo('training-list');
+    } else {
+      navigateTo(id);
+    }
+  };
+
+  const isNavActive = (id) => {
+    if (id === 'training') {
+      return activePage === 'training-list' || activePage === 'detail-pelatihan';
+    }
+    return activePage === id;
+  };
+
   return (
     <header className="navbar-container">
       <div className="navbar-pill">
-        <div className="navbar-logo" onClick={() => setActivePage('home')}>
-          <span className="logo-oemah">Oemah Training</span>
+        <div className="navbar-logo" onClick={() => navigateTo('home')}>
+          <img
+          src={logoTraining}
+          alt="Oemah Training Logo"
+        />
         </div>
 
-        <nav className="navbar-links">
-          {navItems.map((item) => (
+        <nav className="navbar-links" aria-label="Main Navigation">
+          {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
-              onClick={() => {
-                if (item.id === 'training') {
-                  setActivePage('training-list');
-                } else {
-                  setActivePage(item.id);
-                }
-              }}
-              className={`nav-link ${activePage === item.id || (item.id === 'training' && (activePage === 'training-list' || activePage === 'detail-pelatihan'))
-                ? 'active'
-                : ''
-                }`}
+              onClick={() => handleNavClick(item.id)}
+              className={`nav-link ${isNavActive(item.id) ? 'active' : ''}`}
             >
               {item.label}
             </button>
           ))}
         </nav>
 
-        <button className="btn-mulai" onClick={onOpenModal}>
+        <button className="btn-mulai" onClick={() => openRegistrationModal()}>
           Mulai Sekarang
         </button>
       </div>

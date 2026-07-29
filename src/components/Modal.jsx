@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle } from 'lucide-react';
-import { useApp } from '../../context/AppContext';
-import { TRAINING_COURSES } from '../../data/mockData';
+import { useApp } from '../context/AppContext';
+import { TRAINING_COURSES } from '../data/mockData';
 
 export default function Modal() {
   const { isModalOpen, closeRegistrationModal, selectedCourseId, selectedPackage } = useApp();
@@ -14,7 +14,7 @@ export default function Modal() {
     packageType: selectedPackage || 'online',
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isModalOpen) {
       setFormData((prev) => ({
         ...prev,

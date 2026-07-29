@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, UserCheck, BookOpen, Users, MapPin } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/mockData';
+import '../styles/AboutPage.css';
 
 import arduino1 from "../assets/gallery/arduino1.jpg";
 import arduino2 from "../assets/gallery/arduino2.jpg";
@@ -30,6 +31,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+
 
         {/* STATS ROW (4 CARDS) */}
         <div className="about-stats-grid">

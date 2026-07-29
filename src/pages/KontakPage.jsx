@@ -1,9 +1,10 @@
 import React from 'react';
+import '../styles/KontakPage.css';
 
 export default function KontakPage() {
   return (
     <section className="contact-page">
-      <div className="contact-container">
+      <div className="container contact-container">
         
         {/* HEADER */}
         <div className="contact-header">

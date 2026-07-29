@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FaFacebookF,
   FaInstagram,
@@ -7,7 +8,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { useApp } from "../../context/AppContext"; // <-- INI YANG KURANG
+import { useApp } from "../context/AppContext";
 
 export default function Footer() {
   const { navigateTo } = useApp();

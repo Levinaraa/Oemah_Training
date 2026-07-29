@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/HomePage.css';
 import {
   ArrowUpRight,
   Users,
@@ -127,24 +128,23 @@ export default function HomePage() {
         </div>
 
         <div className="topics-grid">
-          <div className="topic-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
               <span className="topic-badge">Topik 1</span>
                 </div>
             <h3>Software Development</h3>
             <p>Belajar arsitektur perangkat lunak, clean code, dan metodologi pengembangan sistem modern...</p>
           </div>
-
-          <div className="topic-card" onClick={() => navigateTo('training-list')}>
+     
+          <div className="feature-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
               <span className="topic-badge">Topik 2</span>
-              
-            </div>
+                </div>
             <h3>Data Science & Big Data</h3>
             <p>Eksplorasi data, olah big data, machine learning, dan analisis statistik terapan...</p>
           </div>
 
-          <div className="topic-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
               <span className="topic-badge">Topik 3</span>
               
@@ -153,7 +153,7 @@ export default function HomePage() {
             <p>Semakin hari masyarakat semakin melekat dengan internet terutama sosial media...</p>
           </div>
 
-          <div className="topic-card" onClick={() => navigateTo('training-list')}>
+          <div className="feature-card" onClick={() => navigateTo('training-list')}>
             <div className="topic-header">
               <span className="topic-badge">Topik 4</span>
             </div>
@@ -177,7 +177,6 @@ export default function HomePage() {
         </div>
         
         <div className="trainer-nav-controls">
-          <button className="btn-filter-tag active">Semua ({TRAINERS.length})</button>
           <div className="slider-arrows">
             <button
               className="arrow-btn"
