@@ -1,0 +1,310 @@
+/* DETAIL PELATIHAN PAGE */
+.page-detail-pelatihan {
+  padding: 40px 0 80px 0;
+}
+
+.detail-course-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.detail-date-row {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.detail-description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.detail-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.detail-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-back-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.detail-topic-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.detail-section-block {
+  margin-bottom: 44px;
+}
+
+.block-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.custom-numbered-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+/* DAY TABS */
+.day-tabs-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.day-tab-btn {
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 24px;
+  border-radius: 999px;
+}
+
+.day-tab-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.sessions-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.session-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.session-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.session-time {
+  color: var(--text-muted);
+}
+
+.session-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.session-points-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* THREE COLUMNS GRID */
+.three-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.info-column-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.column-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pencil-icon {
+  color: var(--primary);
+}
+
+.column-badge-header h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* PRICING GRID */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.online-card {
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(140, 198, 63, 0.1);
+}
+
+.pricing-card-header h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pricing-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pricing-price-box {
+  margin: 24px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-val {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.price-val.highlight-green {
+  color: var(--primary);
+}
+
+.price-val.dark-price {
+  color: var(--text-main);
+}
+
+.price-unit {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pricing-facilities h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.facility-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.facility-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.facility-item.check .check-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.facility-item.cross .check-icon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.btn-select-package {
+  width: 100%;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.btn-select-package.dark-btn {
+  background: var(--text-main);
+}
+
+.btn-select-package:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .page-detail-pelatihan {
+    padding: 30px 0 60px 0;
+  }
+
+  .sessions-cards-grid,
+  .three-columns-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-detail-pelatihan {
+    padding: 24px 0 48px 0;
+  }
+
+  .detail-top-row,
+  .detail-section-block {
+    gap: 18px;
+  }
+}

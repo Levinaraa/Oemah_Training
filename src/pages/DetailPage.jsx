@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronLeft, Calendar as CalendarIcon, Edit3, CheckCircle2, XCircle } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { TRAINING_COURSES } from '../data/mockData';
-import '../styles/global.css';
+import '../styles/DetailPage.css';
 
 export default function DetailPage() {
   const { openRegistrationModal, selectedCourseId, navigateTo } = useApp();

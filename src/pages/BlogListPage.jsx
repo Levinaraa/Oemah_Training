@@ -5,32 +5,15 @@ import { BLOG_POSTS } from '../data/mockData';
 import Calendar from '../components/Calendar';
 import '../styles/BlogDetailPage.css';
 
-export default function BlogDetailPage() {
-  const { selectedBlogId, navigateTo, openBlogDetail } = useApp();
+export default function BlogListPage() {
+  const { navigateTo, openBlogDetail } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
-  const post = BLOG_POSTS.find((item) => item.id === selectedBlogId) || BLOG_POSTS[0];
 
-  if (!post) {
-    return (
-      <div className="page-detail-pelatihan">
-        <div className="container">
-          <div className="page-header">
-            <h1 className="page-title">Artikel tidak ditemukan</h1>
-            <p>Maaf, artikel yang diminta tidak tersedia.</p>
-            <button className="btn-read-more" onClick={() => navigateTo('blog-list')}>
-              Kembali ke Daftar Artikel
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const recentPosts = BLOG_POSTS.filter((item) => item.id !== post.id).slice(0, 3);
-  const searchResults = BLOG_POSTS.filter((item) =>
+  const filteredPosts = BLOG_POSTS.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     item.snippet.toLowerCase().includes(searchQuery.toLowerCase())
-  ).slice(0, 4);
+  );
+
   const archiveItems = Array.from(
     new Set(
       BLOG_POSTS.map((item) => item.date.split(' ').slice(1).join(' '))
@@ -43,36 +26,35 @@ export default function BlogDetailPage() {
         <div className="blog-detail-layout">
           <main className="blog-detail-main">
             <div className="page-header">
-              <button className="btn-back" onClick={() => navigateTo('blog-list')}>
-                <ArrowLeft size={16} /> Kembali ke Daftar Artikel
+              <button className="btn-back" onClick={() => navigateTo('home')}>
+                <ArrowLeft size={16} /> Kembali ke Beranda
               </button>
-              <h1 className="page-title">{post.title}</h1>
-              <div className="detail-date-row">
-                <CalendarIcon size={16} /> {post.date}
-              </div>
-              <p className="detail-description">{post.snippet}</p>
+              <h1 className="page-title">Explore & Learn</h1>
+              <p className="detail-description">
+                Kumpulan artikel terbaru seputar teknologi dan pelatihan.
+              </p>
             </div>
 
             <div className="detail-section-block">
-              <h3 className="block-title">Ringkasan</h3>
-              <p className="detail-description">{post.content}</p>
-            </div>
-
-            {post.keyPoints && (
-              <div className="detail-section-block">
-                <h3 className="block-title">Poin Utama</h3>
-                <ul className="custom-numbered-list">
-                  {post.keyPoints.map((point, idx) => (
-                    <li key={idx}>{point}</li>
-                  ))}
-                </ul>
+              <div className="blog-cards-grid">
+                {filteredPosts.map((post) => (
+                  <div key={post.id} className="blog-card-list-item">
+                    <div className="blog-img-box">
+                      <img src={post.image} alt={post.title} loading="lazy" />
+                    </div>
+                    <div className="blog-content">
+                      <h3>{post.title}</h3>
+                      <span className="blog-date"><CalendarIcon size={14} /> {post.date}</span>
+                      <p>{post.snippet}</p>
+                      <div className="blog-footer">
+                        <button className="btn-read-more" onClick={() => openBlogDetail(post.id)}>
+                          Read More
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            )}
-
-            <div className="detail-section-block">
-              <button className="btn-read-more" onClick={() => navigateTo('home')}>
-                Kembali ke Beranda
-              </button>
             </div>
           </main>
 
@@ -92,7 +74,7 @@ export default function BlogDetailPage() {
             <div className="sidebar-widget">
               <h4 className="widget-title">Recent Post</h4>
               <ul className="widget-list">
-                {(searchQuery ? searchResults : recentPosts).map((item) => (
+                {BLOG_POSTS.slice(0, 3).map((item) => (
                   <li key={item.id} onClick={() => openBlogDetail(item.id)}>
                     {item.title}
                   </li>

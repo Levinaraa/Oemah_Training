@@ -259,7 +259,7 @@ export default function HomePage() {
           <h2 className="section-title">
             Update Seputar Dunia <span className="highlight-text">Teknologi</span>
           </h2>
-          <button className="btn-read-more-link" onClick={() => navigateTo('training-list')}>
+          <button className="btn-read-more-link" onClick={() => navigateTo('blog-list')}>
             Lihat Semua Artikel <ArrowUpRight size={16} />
           </button>
         </div>

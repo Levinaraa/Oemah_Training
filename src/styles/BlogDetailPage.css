@@ -1,0 +1,166 @@
+/* BLOG DETAIL PAGE */
+.page-detail-pelatihan {
+  padding: 40px 0 80px 0;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.detail-date-row {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.detail-description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.detail-section-block {
+  margin-bottom: 44px;
+}
+
+.block-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.custom-numbered-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.btn-read-more {
+  border: 1px solid var(--border-accent);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-read-more:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+.blog-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.blog-detail-main {
+  min-width: 0;
+}
+
+.blog-detail-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.sidebar-search-box input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 1px solid rgba(26, 50, 99, 0.16);
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.sidebar-search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.sidebar-widget {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.widget-title {
+  margin: 0 0 12px;
+  color: #1f2937;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.widget-list,
+.archive-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.widget-list li,
+.archive-list li {
+  margin-bottom: 10px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.widget-list li:hover,
+.archive-list li:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .blog-detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
