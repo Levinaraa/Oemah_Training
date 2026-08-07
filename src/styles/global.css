@@ -6,11 +6,21 @@
 }
 
 .highlight-text {
-  background: var(--primary-hover);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: 'Caveat', cursive;
+  color: var(--primary-hover);
+  margin-right: 4px;
+}
 
+.highlight-text-hero {
+  font-family: 'Caveat', cursive;
+  color: var(--primary-hover);
+  margin-right: 6px;
+  color: linear-gradient(
+    90deg,
+    #5D8BB7 0%,
+    #7EA6D8 50%,
+    #A7C7E7 100%
+  );
 }
 
 .bg-muted {

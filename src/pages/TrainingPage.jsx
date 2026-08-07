@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Calendar as CalendarIcon, Search } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { TRAINING_COURSES, CATEGORIES } from '../data/mockData';
-import Calendar from '../components/Calendar';
 import '../styles/training.css';
 
 const ITEMS_PER_PAGE = 6;
@@ -76,18 +75,33 @@ export default function TrainingPage() {
               ))}
             </div>
 
+            <div className="training-controls-row">
+              <div className="training-result-count">
+                Menampilkan{' '}
+                {filteredCourses.length > 0 ? 1 : 0}
+                -
+                {displayedTo} dari{' '}
+                {filteredCourses.length} Pelatihan
+              </div>
 
-            {/* RESULT COUNT */}
-            <div className="training-result-count">
-              Menampilkan{' '}
-              {filteredCourses.length > 0 ? 1 : 0}
-              -
-              {displayedTo} dari{' '}
-              {filteredCourses.length} Pelatihan
+              <div className="sidebar-search-box">
+                <Search
+                  size={13}
+                  className="search-icon"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) =>
+                    setSearchQuery(e.target.value)
+                  }
+                />
+              </div>
             </div>
 
 
-            {/* TRAINING CARDS */}
             <div className="training-cards-grid">
 
               {filteredCourses.length === 0 ? (
@@ -134,6 +148,9 @@ export default function TrainingPage() {
                         <div className="course-price">
                           {coursePrice}
                         </div>
+                        <span className="course-price-note">
+                          *Harga untuk kelas online
+                          </span>
 
                         <p className="course-excerpt">
                           {course.excerpt}
@@ -142,14 +159,8 @@ export default function TrainingPage() {
 
                         {/* FOOTER */}
                         <div className="course-card-footer">
-
-                          <span className="course-date-badge">
-                            <CalendarIcon size={10} />
-                            {course.date}
-                          </span>
-
                           <button
-                            className="btn-card-cta"
+                            className="btn-card-cta btn-card-full"
                             onClick={() =>
                               navigateTo(
                                 'detail-pelatihan',
@@ -157,9 +168,8 @@ export default function TrainingPage() {
                               )
                             }
                           >
-                            Learn More
+                            Daftar
                           </button>
-
                         </div>
 
                       </div>
@@ -212,123 +222,6 @@ export default function TrainingPage() {
             </div>
 
           </main>
-
-
-          {/* =========================
-              RIGHT SIDEBAR
-          ========================= */}
-          <aside className="training-sidebar">
-
-            {/* SEARCH */}
-            <div className="sidebar-search-box">
-              <Search
-                size={13}
-                className="search-icon"
-              />
-
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) =>
-                  setSearchQuery(e.target.value)
-                }
-              />
-            </div>
-
-
-            {/* CALENDAR */}
-            <Calendar />
-
-
-            {/* RECENT POST */}
-            <div className="sidebar-widget">
-
-              <h4 className="widget-title">
-                Recent Post
-              </h4>
-
-              <ul className="widget-list">
-
-                <li
-                  onClick={() =>
-                    navigateTo(
-                      'detail-pelatihan',
-                      'ai-diagnosis-penyakit'
-                    )
-                  }
-                >
-                  Pengembangan AI untuk Diagnosis Penyakit
-                </li>
-
-                <li
-                  onClick={() =>
-                    navigateTo(
-                      'detail-pelatihan',
-                      'keamanan-sistem'
-                    )
-                  }
-                >
-                  Keamanan Sistem dan Pengendalian Resiko
-                </li>
-
-                <li
-                  onClick={() =>
-                    navigateTo(
-                      'detail-pelatihan',
-                      'mengelola-risiko-sdm-1'
-                    )
-                  }
-                >
-                  Mengelola Risiko SDM di Lingkungan IT
-                </li>
-
-                <li
-                  onClick={() =>
-                    navigateTo(
-                      'detail-pelatihan',
-                      'dasar-data-kesehatan'
-                    )
-                  }
-                >
-                  Dasar Sistem Data Kesehatan Digital
-                </li>
-
-                <li
-                  onClick={() =>
-                    navigateTo(
-                      'detail-pelatihan',
-                      'menerapkan-ai-aman'
-                    )
-                  }
-                >
-                  Menerapkan AI dengan Aman dan Tepat
-                </li>
-
-              </ul>
-
-            </div>
-
-
-            {/* ARCHIVES */}
-            <div className="sidebar-widget">
-
-              <h4 className="widget-title">
-                Archives
-              </h4>
-
-              <ul className="widget-list archive-list">
-                <li>Juli 2026</li>
-                <li>Juni 2026</li>
-                <li>Mei 2026</li>
-                <li>April 2026</li>
-                <li>Maret 2026</li>
-                <li>Februari 2026</li>
-              </ul>
-
-            </div>
-
-          </aside>
 
         </div>
 

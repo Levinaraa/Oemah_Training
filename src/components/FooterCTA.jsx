@@ -10,7 +10,7 @@ export default function FooterCTA() {
       <div className="footer-cta-card">
         <div className="footer-cta-content">
           <h2 className="cta-heading">
-            Siap <span className="highlight-text">Upgrade</span> Skill-mu?
+            Siap <span className="highlight-text-hero">Upgrade</span> Skill-mu?
           </h2>
           <p className="cta-subtext">
             Pelajari teknologi terkini, kembangkan keahlianmu, dan tumbuh bersama komunitas Oemah Training.

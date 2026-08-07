@@ -9,15 +9,21 @@ import {
   Calendar as CalendarIcon,
   ChevronLeft,
   ChevronRight,
-  TimerIcon
+  TimerIcon,
+  Code2,
+  Database,
+  TrendingUp,
+  Cpu
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { TRAINERS, TESTIMONIALS, BLOG_POSTS } from '../data/mockData';
+import { TRAINERS, TESTIMONIALS, BLOG_POSTS, TRAINING_COURSES } from '../data/mockData';
+
 
 export default function HomePage() {
   const { navigateTo, openRegistrationModal, setSelectedCategory, openTrainerDetail, openBlogDetail } = useApp();
 
   const [currentPage, setCurrentPage] = useState(0);
+  const [trainingMode, setTrainingMode] = useState('online');
   const trainersPerPage = 4; // tampilkan 4 trainer per halaman
   const totalPages = Math.ceil(TRAINERS.length / trainersPerPage);
 
@@ -32,7 +38,54 @@ export default function HomePage() {
 
   const handleNext = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
-  };  
+  };
+
+  const topicCards = [
+    {
+      id: 'keamanan-sistem',
+      titleText: 'Software Development',
+      icon: Code2,
+      iconClass: 'topic-icon--software',
+      features: [
+        'Fundamental pengembangan aplikasi web dan sistem',
+        'Pengelolaan kode dengan version control',
+        'Pengujian, deployment, dan kontrol risiko perangkat lunak'
+      ]
+    },
+    {
+      id: 'ai-diagnosis-penyakit',
+      titleText: 'Data Science & Big Data',
+      icon: Database,
+      iconClass: 'topic-icon--data',
+      features: [
+        'Persiapan data, analisis, dan feature engineering',
+        'Pembuatan model machine learning untuk kasus nyata',
+        'Evaluasi performa dan implementasi data-driven'
+      ]
+    },
+    {
+      id: 'digital-marketing-seo',
+      titleText: 'Digital Marketing & SEO',
+      icon: TrendingUp,
+      iconClass: 'topic-icon--marketing',
+      features: [
+        'Riset kata kunci dan optimasi SEO',
+        'Strategi iklan digital dan kampanye media sosial',
+        'Analisis hasil dan pengukuran performa pemasaran'
+      ]
+    },
+    {
+      id: 'arduino-robotika-pro',
+      titleText: 'Arduino & Robotika',
+      icon: Cpu,
+      iconClass: 'topic-icon--robotics',
+      features: [
+        'Pemrograman mikrokontroler dengan Arduino',
+        'Integrasi sensor dan aktuator untuk sistem otomatis',
+        'Pembuatan proyek robotik dan IoT praktis'
+      ]
+    }
+  ];
 
   return (
     <div className="page-home">
@@ -41,7 +94,7 @@ export default function HomePage() {
         <div className="hero-container">
           <div className="hero-left">
             <h1 className="hero-title">
-              Mengantar <span className="highlight-text">Teknologi</span> Lebih Dekat dengan Kita
+              Mengantar <span className="highlight-text-hero">Teknologi</span> {" "} Lebih Dekat dengan Kita
             </h1>
             <p className="hero-description">
               Perjalanan dimulai dari bersama-sama mengembangkan dan membagikan keahlian untuk masa depan.
@@ -79,14 +132,15 @@ export default function HomePage() {
 
       {/* SECTION 1: PENGALAMAN BELAJAR */}
       <section className="section-container">
-        <div className="section-tag-badge">Pengalaman Belajar</div>
         <div className="section-header-split">
-          <h2 className="section-title">
-            Pengalaman <span className="highlight-text">Belajar</span> Secara Langsung
-          </h2>
-          <p className="section-subtitle-right">
-            Wadah pengembangan fleksibel dan materi berkualitas yang dirancang untuk mendukung peserta dari berbagai latar belakang bidang teknologi informasi.
-          </p>
+          <div>
+            <h2 className="section-title">
+              Pengalaman <span className="highlight-text">Belajar</span> Secara Langsung
+            </h2>
+            <p className="section-subtitle-right">
+              Program pelatihan dengan materi berkualitas untuk meningkatkan kompetensi teknologi informasi.
+            </p>
+          </div>
         </div>
 
         <div className="features-grid">
@@ -120,59 +174,93 @@ export default function HomePage() {
       <section className="section-container bg-muted">
         <div className="text-center-wrapper">
           <h2 className="section-title text-center">
-            Jelajahi Berbagai <span className="highlight-text">Materi</span> Pembelajaran
+            Jelajahi Berbagai <span className="highlight-text">Materi</span> Pelatihan
           </h2>
-          <p className="section-subtitle text-center">
-            Pilihan bidang pelatihan dirancang agar fokus, mendalam, dan relevan dengan industri, sehingga kamu dapat memilih sesuai target karirmu.
+          <p className="section-subtitle text-center training-subtitle">
+            Jelajahi berbagai bidang pelatihan dengan materi yang relevan untuk mendukung perkembangan kariermu.
           </p>
         </div>
 
+        <div className="training-toggle-wrapper">
+          <div className={`training-type-toggle ${trainingMode}`}>
+            <button
+              type="button"
+              className={`toggle-option ${trainingMode === 'online' ? 'active' : ''}`}
+              onClick={() => setTrainingMode('online')}
+            >
+              Online
+            </button>
+            <button
+              type="button"
+              className={`toggle-option ${trainingMode === 'offline' ? 'active' : ''}`}
+              onClick={() => setTrainingMode('offline')}
+            >
+              Offline
+            </button>
+            <div className="toggle-indicator" />
+          </div>
+        </div>
+
         <div className="topics-grid">
-          <div className="feature-card" onClick={() => { setSelectedCategory('Software Development'); navigateTo('training-list'); }}>
-            <div className="topic-header">
-              <span className="topic-badge">Topik 1</span>
-                </div>
-            <h3>Software Development</h3>
-            <p>Belajar arsitektur perangkat lunak, clean code, dan metodologi pengembangan sistem modern...</p>
-          </div>
-     
-          <div className="feature-card" onClick={() => { setSelectedCategory('Data Science & Big Data'); navigateTo('training-list'); }}>
-            <div className="topic-header">
-              <span className="topic-badge">Topik 2</span>
-                </div>
-            <h3>Data Science & Big Data</h3>
-            <p>Eksplorasi data, olah big data, machine learning, dan analisis statistik terapan...</p>
-          </div>
+          {topicCards.map((topic) => {
+            const course = TRAINING_COURSES.find((item) => item.id === topic.id);
+            if (!course) return null;
 
-          <div className="feature-card" onClick={() => { setSelectedCategory('Digital Marketing & SEO'); navigateTo('training-list'); }}>
-            <div className="topic-header">
-              <span className="topic-badge">Topik 3</span>
-              
-            </div>
-            <h3>Digital Marketing dan Teknik SEO</h3>
-            <p>Semakin hari masyarakat semakin melekat dengan internet terutama sosial media...</p>
-          </div>
+            const coursePrice =
+              trainingMode === 'offline'
+                ? course.pricing?.offline?.price || 'Rp 7.900.000'
+                : course.pricing?.online?.price || 'Rp 5.500.000';
 
-          <div className="feature-card" onClick={() => { setSelectedCategory('Arduino & Robotika'); navigateTo('training-list'); }}>
-            <div className="topic-header">
-              <span className="topic-badge">Topik 4</span>
-            </div>
-            <h3>Arduino & Robotika</h3>
-            <p>Integrasi hardware, sensor pintar, mikrokokontroler, dan sistem otomatisasi berbasis IoT...</p>
-          </div>
+            return (
+              <div key={topic.id} className="topic-card">
+                    <div className="topic-card-body">
+                      <div className="topic-card-header">
+                      <div className={`topic-card-icon-box ${topic.iconClass}`}>
+                        <topic.icon size={16} />
+                      </div>
+                      <h3 className="topic-card-title">{topic.titleText}</h3>
+                    </div>
+
+                    <div className="topic-card-title-line"></div>
+
+                    <div className="topic-card-price">
+                      <div className="topic-price-row">
+                        <span className="topic-price">{coursePrice}</span>
+                      </div>
+                        <div className="topic-price-note">*Harga per orang</div>
+                      </div>
+
+                      <ul className="topic-features">
+                        {topic.features.map((feature, index) => (
+                          <li key={index} className="topic-feature-item">{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <button
+                      className="topic-card-btn"
+                      onClick={() => {
+                        setSelectedCategory(course.category);
+                        navigateTo('training-list');
+                      }}
+                    >
+                      Lihat Training
+                    </button>
+                  </div>
+            );
+          })}
         </div>
       </section>
 
     {/* SECTION 3: TRAINER PROFESIONAL */}
     <section className="section-container">
-      <div className="section-tag-badge">Meet Our Trainers</div>
       <div className="section-header-split">
         <div>
           <h2 className="section-title">
-            Belajar Langsung dari Para <span className="highlight-text">Trainer</span> Profesional
+            Dipandu <span className="highlight-text">Trainer</span> Profesional
           </h2>
           <p className="section-subtitle">
-            Para instruktur ahli berpengalaman siap membimbingmu, mendampingi proses belajar hingga 100% paham materi.
+            Belajar langsung dari instruktur ahli yang berpengalaman di bidangnya.
           </p>
         </div>
         
@@ -222,11 +310,9 @@ export default function HomePage() {
 
       {/* SECTION 4: TESTIMONIALS */}
       <section className="section-container bg-muted">
-        <div className="section-tag-badge center">
-         Learning Experiences
-        </div>
+        
         <h2 className="section-title text-center">
-          Mereka yang Telah <span className="highlight-text">Berlatih</span> Bersama Kami
+          Pengalaman <span className="highlight-text">Para Peserta </span> Bersama Kami
         </h2>
 
         <div className="testimonials-grid">
@@ -251,10 +337,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 5: BLOG UPDATE */}
-      <section className="section-container">
-        <div className="section-tag-badge">
-         Explore and Learn
-        </div>
+      <section className="section-container">        
         <div className="section-header-split">
           <h2 className="section-title">
             Update Seputar Dunia <span className="highlight-text">Teknologi</span>
